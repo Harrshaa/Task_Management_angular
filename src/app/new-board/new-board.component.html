@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>New Board</h2>
+
+<mat-dialog-content>
+    <mat-form-field  >
+        <label>Enter the title</label>
+        <input [(ngModel)]="title" matInput/>
+    </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button  (click)="close()" mat-button>Cancel</button>
+    <button (click)="create()" mat-raised-button>Create</button>
+</mat-dialog-actions>
