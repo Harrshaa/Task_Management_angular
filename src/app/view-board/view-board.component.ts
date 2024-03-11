@@ -16,7 +16,7 @@ export class ViewBoardComponent implements OnInit{
     public boardService:BoardService) {}
 
   ngOnInit(): void {
-    this.boardIndex=this.route.snapshot.paramMap.get('boardIndex')
+    this.boardIndex=this.route.snapshot.paramMap.get('boardIndex');
 
       
   } 

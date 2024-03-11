@@ -21,8 +21,7 @@
 }
 
 new-button{
-    background-color: brown;
-    color: white;
+    background-color: lightcoral;   
     font-size: 16px;
     width: 120px;
 }

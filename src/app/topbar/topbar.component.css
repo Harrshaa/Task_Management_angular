@@ -3,11 +3,13 @@
     flex-direction: row;
     width: 100%;
     height:10vh;
-    background-color: green;
+    background-color: lightcoral;
     color: white;
     padding: 0px;
     box-shadow: 0 8px 6px -6px rgba(red, green, blue, alpha);
     z-index: 10;
+    color: black;
+    font-family: cursive;
 }
 
 .branding{

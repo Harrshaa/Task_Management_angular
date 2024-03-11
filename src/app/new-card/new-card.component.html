@@ -2,17 +2,15 @@
 
 
 <mat-dialog-content class="content">
-    <div>
-    
-        <label>Enter the title</label>
-        <input [(ngModel)]="title" matInput/>
-    
+    <div class="title-box">    
+        <label>Enter the title:</label>
+        <input class="input-field" [(ngModel)]="title" />    
     </div>
 
     <div class="task-container" *ngFor="let task of tasksLoop;let i=index">
         <div class="task-input">
-            <label>Task{{i+1}}</label>
-            <input [(ngModel)]="tasks[i]" matInput/>  
+            <label>Task{{i+1}}:</label>
+            <input class="input-field" [(ngModel)]="tasks[i]" />  
         </div>
         <button (click)="deleteTask(i)" mat-icon-button><mat-icon>delete</mat-icon></button>
     </div>

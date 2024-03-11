@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { NewBoardComponent } from '../new-board/new-board.component';
 import { BoardService } from '../services/board.service';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-boards',
@@ -12,15 +12,20 @@ import { RouterLink } from '@angular/router';
 })
 export class BoardsComponent implements OnInit {
 
-  constructor(private matDialog:MatDialog, public boardService:BoardService){}
+  constructor(private matDialog:MatDialog, public boardService:BoardService, private route:ActivatedRoute){}
 
     ngOnInit(): void{
+      
     }
 
     openNewBoardDialog(){
       const dialogRef= this.matDialog.open(NewBoardComponent,{ 
         width:'500px'
       });
+    }
+    deleteBoard(index:any){
+    this.boardService.boards.splice(index,1);
+    this.boardService.updateDataToLocalStorage();
     }
   
   }
