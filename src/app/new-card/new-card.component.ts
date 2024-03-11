@@ -13,7 +13,11 @@ export class NewCardComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)public data:any, public boardService:BoardService){}
 
   ngOnInit() : void {
-    console.log("this is the data:"+ this.data);
+    if(this.data.editMode){
+      this.title=this.boardService.boards[this.data.boardIndex].cards[this.data.cardIndex].title;
+      this.tasksLoop=this.boardService.boards[this.data.boardIndex].cards[this.data.cardIndex].status;
+      this.tasks=this.boardService.boards[this.data.boardIndex].cards[this.data.cardIndex].checklist;
+    }
   }
   
 
@@ -38,11 +42,21 @@ export class NewCardComponent implements OnInit {
   }
 
   create(){
-    this.boardService.boards[this.data].cards.push({
-      title:this.title,
-      checklist:this.tasks,
-      status:this.tasksLoop
-    });
+    if(!this.data.editMode){
+      this.boardService.boards[this.data.boardIndex].cards.push({
+        title:this.title,
+        checklist:this.tasks,
+        status:this.tasksLoop
+      });
+    }
+      else{
+        this.boardService.boards[this.data.boardIndex].cards[this.data.cardIndex].title=this.title;
+        this.boardService.boards[this.data.boardIndex].cards[this.data.cardIndex].status=this.tasksLoop;
+        this.boardService.boards[this.data.boardIndex].cards[this.data.cardIndex].checklist=this.tasks;
+
+      }
+    
+   
     this.boardService.updateDataToLocalStorage();
     this.close();
 

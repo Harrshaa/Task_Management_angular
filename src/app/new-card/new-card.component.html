@@ -1,4 +1,4 @@
-<h2 mat-dialog-title>New Card</h2>
+<h2 mat-dialog-title>{{data.editMode ? 'Edit': 'New'}} Card</h2>
 
 
 <mat-dialog-content class="content">
@@ -23,6 +23,6 @@
 
 <mat-dialog-actions>          
     <button mat-button (click)="close()">Cancel</button>
-    <button mat-button (click)="create()">Create</button>
+    <button mat-button (click)="create()">{{data.editMode ? 'Save': 'Create'}}</button>
    
 </mat-dialog-actions>

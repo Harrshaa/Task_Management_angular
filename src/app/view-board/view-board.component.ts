@@ -25,7 +25,14 @@ export class ViewBoardComponent implements OnInit{
   newCard(){
     this.dialog.open(NewCardComponent,{
       width:'500px',
-      data:this.boardIndex
+      data:{boardIndex: this.boardIndex, editMode: false, cardIndex:-1}
+    });
+  }
+
+  editCard(cardIndex:any){
+    this.dialog.open(NewCardComponent,{
+      width:'500px',
+      data:{boardIndex: this.boardIndex, editMode: true, cardIndex: cardIndex}
     });
   }
 
