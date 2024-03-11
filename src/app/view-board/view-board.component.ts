@@ -36,4 +36,10 @@ export class ViewBoardComponent implements OnInit{
     });
   }
 
+  deleteCard(cardIndex:any){
+    this.boardService.boards[this.boardIndex].cards.splice(cardIndex,1);
+    this.boardService.updateDataToLocalStorage();
+
+  }
+
 }
